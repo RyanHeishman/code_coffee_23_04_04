@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dojos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  </head>
+  <body class="d-flex">
+    <!-- New Dojo -->
+    <div class="card mt-4 bg-light w-25 mv-100 mx-auto">
+        <div class="card-body p-4">
+            <h1>New Dojo</h1>
+          <form action="/dojos/new" method="POST" class="p-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" name="name" class="form-control">
+            <button type="submit" class="btn btn-danger mt-4">Create</button>
+        </form>
+        </div>
+      </div>
+      <!-- All Dojo -->
+    <div class="card w-25 mt-4 bg-light mx-auto">
+        <div class="card-body p-4">
+            <h1>All Dojos</h1>
+            {% for one_dojo in all_dojos %}
+                <ul class="">
+                    <li class="list-group-item"><a href="/dojo/{{ one_dojo.id }}">{{one_dojo.name}}</li></a>
+                </ul>
+            {% endfor %}
+        </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+  </body>
+</html>
